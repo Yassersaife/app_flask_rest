@@ -1,4 +1,3 @@
-from distutils.log import error
 from flask import Flask,Blueprint, render_template, request, jsonify ,url_for, flash, redirect
 import sqlite3 
 
@@ -113,7 +112,7 @@ def delete_book(id):
 def home_page():
     return "<h1>hello</h1>"
 
-@catalog.route("/CATALOG_WEBSERVICE_IP/infoo", methods=['GET'])
+@catalog.route("/CATALOG_WEBSERVICE_IP/info", methods=['GET'])
 def books_api():
     return jsonify(get_books()) 
 
