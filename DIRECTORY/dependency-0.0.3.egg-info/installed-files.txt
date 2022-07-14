@@ -1,0 +1,10 @@
+../dependency/__init__.py
+../dependency/__pycache__/__init__.cpython-310.pyc
+../dependency/__pycache__/core.cpython-310.pyc
+../dependency/__pycache__/wrappers.cpython-310.pyc
+../dependency/core.py
+../dependency/wrappers.py
+PKG-INFO
+SOURCES.txt
+dependency_links.txt
+top_level.txt

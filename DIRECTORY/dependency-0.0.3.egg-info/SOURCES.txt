@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+dependency/__init__.py
+dependency/core.py
+dependency/wrappers.py
+dependency.egg-info/PKG-INFO
+dependency.egg-info/SOURCES.txt
+dependency.egg-info/dependency_links.txt
+dependency.egg-info/top_level.txt
