@@ -41,34 +41,37 @@ def get_books():
 
         # convert row objects to dictionary
         for i in rows:
-            books = {}
-            books["id"] = i["id"]
-            books["title"] = i["title"]
-            books["topic"] = i["topic"]
-            books["quantity"] = i["quantity"]
-            books["price"] = i["price"]
-            books.append(books)
+            book = {}
+            book["id"] = i["id"]
+            book["title"] = i["title"]
+            book["topic"] = i["topic"]
+            book["quantity"] = i["quantity"]
+            book["price"] = i["price"]
+            books.append(book)
+        conn.close()     
 
-    except:
+    except Exception as e:
+        print(e)
         books = ["error to get books"]
 
     return books
 
 
 def get_book_by_id(id):
-    book = {}
+    book ={}
     try:
         conn = connect_to_db()
         conn.row_factory = sqlite3.Row
         cur = conn.cursor()
-        cur.execute("SELECT * FROM book WHERE id = ?",(id,))
+        cur.execute("SELECT title,quantity,price FROM book WHERE id = ?",(id))
         row = cur.fetchone()
 
         # convert row object to dictionary
         book["title"] = row["title"]
         book["quantity"] = row["quantity"]
         book["price"] = row["price"]
-    except:
+    except Exception as e:
+        print(e)
         book = {"error to get book"}
 
     return book 
@@ -112,7 +115,7 @@ def delete_book(id):
 def home_page():
     return "<h1>hello</h1>"
 
-@catalog.route("/CATALOG_WEBSERVICE_IP/info", methods=['GET'])
+@catalog.route("/CATALOG_WEBSERVICE_IP/info")
 def books_api():
     return jsonify(get_books()) 
 
